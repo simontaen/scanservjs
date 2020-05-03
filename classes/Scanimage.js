@@ -41,7 +41,7 @@ module.exports = function () {
             cmd += ' --disable-dynamic-lineart=yes ';
         }
 
-        cmd += ' --batch=' + scanRequest.outputFilepath;
+        cmd += ' --batch="' + scanRequest.outputFilepath + '"';
 
         return cmd;
     };
