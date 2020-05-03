@@ -25,10 +25,6 @@ module.exports = function () {
         }
 
         cmd += ' --resolution ' + scanRequest.resolution;
-        cmd += ' -l ' + scanRequest.left;
-        cmd += ' -t ' + scanRequest.top;
-        cmd += ' -x ' + scanRequest.width;
-        cmd += ' -y ' + scanRequest.height;
         cmd += ' --format ' + scanRequest.format;
 
         if (device.isFeatureSupported('--brightness')) {
