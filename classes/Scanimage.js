@@ -41,12 +41,8 @@ module.exports = function () {
             cmd += ' --disable-dynamic-lineart=yes ';
         }
 
-        if (scanRequest.convertFormat !== 'tif') {
-            cmd += ' | convert - ' + scanRequest.convertFormat + ':-';
-        }
+        cmd += ' --batch=' + scanRequest.outputFilepath;
 
-        // Last
-        cmd += ' > "' + scanRequest.outputFilepath + '"';
         return cmd;
     };
 
