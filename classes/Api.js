@@ -71,7 +71,8 @@ module.exports = function () {
             contrast: req.contrast,
             dynamicLineart: req.dynamicLineart,
             outputFilepath: Config.PreviewDirectory + 'preview.tif',
-            resolution: Config.PreviewResolution
+            resolution: Config.PreviewResolution,
+            source: req.source
         });
 
         var scanner = new Scanimage();

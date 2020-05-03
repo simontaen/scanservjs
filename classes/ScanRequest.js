@@ -65,6 +65,7 @@ ScanRequest.default = {
     height: Config.MaximumScanHeightInMm,
     mode: "Color",
     resolution: 200,
+    source: "ADF Duplex",
     format: "tiff",
     outputFilepath: "",
     brightness: 0,
