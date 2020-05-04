@@ -7,8 +7,8 @@ var ScanRequest = function (def) {
 
     System.extend(_this, ScanRequest.default, def);
     if (!_this.outputFilepath) {
-        var dateString = dateFormat(new Date(), 'yyyy-mm-dd HH.MM.ss');
-        _this.outputFilepath = Config.OutputDirectory + 'scan_' + dateString + '-%d.' + _this.convertFormat;
+        var dateString = dateFormat(new Date(), 'yyyy-mm-dd_HH.MM.ss');
+        _this.outputFilepath = Config.OutputDirectory + 'scan_' + dateString + '--%d.' + _this.convertFormat;
     }
 
     _this.validate = function () {
