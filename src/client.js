@@ -52,6 +52,57 @@ $(document).ready(function () {
                 dynamicLineart: true
             };
         },
+        bw200: function () {
+            return {
+                // LocalStorage requires an id in order to
+                // update / read. This can be fixed to anything
+                id: 1,
+                top: 0,
+                left: 0,
+                width: 0,
+                height: 0,
+                resolution: 200,
+                mode: 'Gray',
+                brightness: 0,
+                contrast: 0,
+                convertFormat: 'tif',
+                dynamicLineart: true
+            };
+        },
+        color300: function () {
+            return {
+                // LocalStorage requires an id in order to
+                // update / read. This can be fixed to anything
+                id: 1,
+                top: 0,
+                left: 0,
+                width: 0,
+                height: 0,
+                resolution: 300,
+                mode: 'Color',
+                brightness: 0,
+                contrast: 0,
+                convertFormat: 'tif',
+                dynamicLineart: true
+            };
+        },
+        hq600: function () {
+            return {
+                // LocalStorage requires an id in order to
+                // update / read. This can be fixed to anything
+                id: 1,
+                top: 0,
+                left: 0,
+                width: 0,
+                height: 0,
+                resolution: 600,
+                mode: 'Color',
+                brightness: 0,
+                contrast: 0,
+                convertFormat: 'tif',
+                dynamicLineart: true
+            };
+        },
 
         initialize: function () {
             this.localStorage = new Backbone.LocalStorage('scanservjs');
@@ -93,6 +144,9 @@ $(document).ready(function () {
             'change select': 'update',
             'click #preview': 'preview',
             'click #reset': 'reset',
+            'click #set_bw_200': 'setBw200',
+            'click #set_color_300': 'setColor300',
+            'click #set_HQ_600': 'setHq600',
             'click #scan': 'scan'
         },
 
@@ -110,6 +164,27 @@ $(document).ready(function () {
 
         reset: function () {
             var defaults = this.model.defaults();
+            this.model.set(defaults);
+            this.model.save();
+            jcrop.draw();
+        },
+
+        setBw200: function () {
+            var defaults = this.model.bw200();
+            this.model.set(defaults);
+            this.model.save();
+            jcrop.draw();
+        },
+
+        setColor300: function () {
+            var defaults = this.model.color300();
+            this.model.set(defaults);
+            this.model.save();
+            jcrop.draw();
+        },
+
+        setHq600: function () {
+            var defaults = this.model.hq600();
             this.model.set(defaults);
             this.model.save();
             jcrop.draw();
